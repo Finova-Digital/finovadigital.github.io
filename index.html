@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finova Digital Solutions FZCO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00b8a9;
+            --secondary-color: #0f1924;
+            --accent-light: rgba(0,184,169,0.1);
+            --accent-medium: rgba(0,184,169,0.2);
+            --light-color: #f5f5f5;
+            --dark-color: #0f1924;
+            --text-light: #ffffff;
+            --text-dark: #1a2a36;
+            --text-muted: #627282;
+            --border-radius: 8px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: var(--secondary-color);
+            color: var(--text-light);
+            padding: 1.5rem 0;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-svg {
+            height: 50px;
+            margin-right: 1rem;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin: 0;
+            line-height: 1.2;
+        }
+        
+        .tagline {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 3px;
+            transition: var(--transition);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--secondary-color);
+            background-image: url('./public/img/banner.jpg');
+            background-size: 100% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,184,169,0.4) 0%, rgba(15,25,36,0.85) 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--text-light);
+            max-width: 650px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+        
+        .btn-primary:hover {
+            background-color: #00a296;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--text-light);
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 6rem 0;
+            background-color: #fff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: .8;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        
+            z-index: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-title {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-description {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .stats-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            flex: 1;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .stat-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 6rem 0;
+            background-color: var(--light-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-box {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .service-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .service-box:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-box:hover::before {
+            width: 100%;
+            opacity: 0.05;
+        }
+        
+        .service-icon {
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .service-title {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .service-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .service-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+        
+        .service-list li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5em;
+            color: var(--text-muted);
+        }
+        
+        .service-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 6rem 0;
+            background-color: #fff;
+        }
+        
+        .team-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .team-member {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 2rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .team-header {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            position: relative;
+        }
+        
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin: 0 auto;
+            display: block;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .team-info {
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .team-name {
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .team-title {
+            color: var(--primary-color);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .team-skills {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .skill-tag {
+            padding: 0.25rem 0.75rem;
+            background-color: var(--accent-light);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            width: 100%;
+            text-align: center;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: var(--secondary-color);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,184,169,0.2) 0%, rgba(15,25,36,0) 100%);
+            z-index: 1;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-text {
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background-color: rgba(0,184,169,0.15);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            background-color: rgba(0,184,169,0.25);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-icon {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-text {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero {
+                height: 70vh;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .service-box {
+                padding: 2rem;
+            }
+            
+            .team-member {
+                min-width: 100%;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="./public/img/finova.svg" width="50" height="50" alt="Finova Logo">
+                <div class="logo-text">
+                    <h1 class="logo">FINOVA</h1>
+                    <span class="tagline">Digital Solutions FZCO</span>
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="mailto:marko@finova.digital">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Powering Seamless Payment Solutions for the Digital Era</h2>
+                <p class="hero-subtitle">We deliver advisory and implementation services in payment systems, artificial intelligence and cross-platform software development tailored to your business needs.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Our Services</a>
+                    <a href="mailto:marko@finova.digital" class="btn btn-outline" ma>Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Who We Are</h2>
+                <p class="section-subtitle">Finova Digital Solutions delivers comprehensive technology solutions with a focus on building lasting partnerships.</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 class="about-title">Expert Advisors & Implementers</h3>
+                    <p class="about-description">Our team brings experience from leading companies like Visa, Microsoft, Amazon, and Careem. Over the last 5 years, we have been assisting clients to build effective payments and payment acceptance solutions across multiple regions.</p>
+                    <p class="about-description">We hold advanced industry certifications, including PMP, TOGAF, as well as certifications for mobile and backend development, ensuring the highest standards of expertise and execution.</p>
+                    
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-text">Years of Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-text">Successful Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-text">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="./public/img/about_image.png" alt="Digital transformation">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Core Competences</h2>
+                <p class="section-subtitle">We provide a comprehensive range of technology services designed to help organizations achieve their digital transformation goals.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <!-- <svg width="50" height="50" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M75,10H25c-8.284,0-15,6.716-15,15v50c0,8.284,6.716,15,15,15h50c8.284,0,15-6.716,15-15V25C90,16.716,83.284,10,75,10z" fill="none" stroke="#00b8a9" stroke-width="4"/>
+                            <path d="M25,35h50M25,55h30M65,55h10M35,75h30" stroke="#00b8a9" stroke-width="4" stroke-linecap="round"/>
+                            <circle cx="75" cy="75" r="10" fill="none" stroke="#00b8a9" stroke-width="4"/>
+                        </svg> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="currentColor" d="M4 18v-7.692v.479V6zm0-9.192h16V6H4zM11.267 19H3V5h18v6.287q-.76-.472-1.634-.726q-.874-.253-1.831-.253q-.868 0-1.669.23q-.8.23-1.481.654H4V18h7.014q.055.275.109.516q.054.24.144.484m5.768 1.808l-.108-.885q-.473-.106-.89-.32q-.416-.215-.748-.588l-.835.335l-.539-.815l.689-.577q-.165-.517-.165-1.035t.165-1.034l-.688-.577l.538-.816l.834.335q.314-.373.74-.588t.899-.32l.108-.884h1l.107.884q.474.106.9.32q.425.215.739.588l.835-.335l.538.816l-.688.577q.165.517.165 1.034q0 .518-.165 1.035l.688.577l-.538.815l-.835-.334q-.333.373-.75.587q-.415.214-.889.32l-.107.885zm.5-1.731q.902 0 1.528-.626t.626-1.528t-.626-1.528t-1.528-.626t-1.528.626t-.626 1.528t.626 1.528t1.527.626"/></svg>
+                        <!-- <img src="./public/img/pay_tech.png" width="54" height="50" alt="Payment Technology Integration and Implementation"> -->
+                    </div>
+                    <h3 class="service-title">Payment Technology Integration and Implementation</h3>
+                    <ul class="service-list">
+                        <li>Tokenization Services Integration</li>
+                        <li>Real-Time Payment Solutions</li>
+                        <li>Mobile Payment Solutions</li>
+                        <li>Express Checkout Integration</li>
+                        <li>Digital Wallet Integration</li>
+                    </ul>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="currentColor" d="M12.692 11.335q.552-.589.776-1.364t.224-1.587t-.224-1.586t-.776-1.364q1.135.104 1.875.95q.74.847.74 2t-.74 2t-1.875.95m5 7.281v-1.692q0-.735-.265-1.4t-.838-1.096q1.025.315 1.872.903q.847.587.847 1.593v1.693zm1.616-6.115v-2h-2v-1h2v-2h1v2h2v1h-2v2zM8.692 11.385q-1.237 0-2.119-.882t-.88-2.119t.88-2.118t2.12-.882t2.118.882t.881 2.118t-.881 2.12t-2.119.88m-7 7.232v-1.647q0-.619.36-1.158q.361-.54.971-.838q1.415-.679 2.833-1.018q1.417-.34 2.836-.34t2.837.34t2.832 1.018q.61.298.97.838q.361.539.361 1.158v1.647zm7-8.231q.825 0 1.413-.588t.587-1.412t-.587-1.413t-1.413-.587t-1.412.587t-.588 1.413t.588 1.412t1.412.588m-6 7.23h12v-.646q0-.332-.214-.625q-.215-.292-.594-.494q-1.234-.598-2.545-.916t-2.647-.318t-2.646.318t-2.546.916q-.379.202-.593.494t-.215.625zm6 0"/></svg>
+                    </div>
+                    <h3 class="service-title">Payment Technology Advisory</h3>
+                    <ul class="service-list">
+                        <li>Solution Architecture Review</li>
+                        <li>Implementation Oversight and QA</li>
+                        <li>Implementation Project Management</li>
+                        <li>Program Management</li>
+                    </ul>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src = "./public/img/ai.svg" width="50" height="50" alt="AI and Advanced Data Solutions"/>
+
+                    </div>
+                    <h3 class="service-title">AI and Advanced Data Solutions</h3>
+                    <ul class="service-list">
+                        <li>Custom AI Implementation</li>
+                        <li>Retrieval-Augmented Generation (RAG) Systems</li>
+                        <li>Custom Chatbot Development</li>
+                    </ul>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="currentColor" d="M7 20.5q-1.864 0-3.182-1.318T2.5 16q0-1.479.84-2.63q.839-1.15 2.16-1.597v1.075q-.875.415-1.437 1.267T3.5 16q0 1.442 1.029 2.471T7 19.5t2.471-1.029T10.5 16v-.5h5.394q.142-.321.44-.526q.297-.205.666-.205q.51 0 .87.36q.36.362.36.871t-.36.87q-.36.36-.87.36q-.388 0-.676-.194q-.288-.196-.43-.536h-4.417q-.235 1.84-1.54 2.92T7 20.5m10 0q-1.054 0-1.96-.457t-1.576-1.274h1.405q.408.327.967.529q.56.202 1.164.202q1.442 0 2.471-1.029T20.5 16t-1.029-2.471T17 12.5q-.442 0-.82.099t-.732.278l-2.8-4.671q-.525.073-.952-.279T11.27 7q0-.51.36-.87q.362-.36.871-.36t.87.36t.36.87q0 .183-.057.357t-.165.299l2.367 3.977q.258-.05.53-.092q.274-.041.595-.041q1.864 0 3.182 1.318T21.5 16t-1.318 3.182T17 20.5M7 17.23q-.51 0-.87-.36T5.77 16q0-.512.378-.892q.379-.381.994-.314l2.562-4.265q-.84-.656-1.272-1.574T8 7q0-1.864 1.318-3.182T12.5 2.5t3.182 1.318T17 7h-1q0-1.442-1.029-2.471T12.5 3.5t-2.471 1.029T9 7q0 1.056.554 1.888t1.515 1.306L8.002 15.32q.108.144.168.321t.06.36q0 .51-.36.87t-.87.36"/></svg>
+                    </div>
+                    <h3 class="service-title">Core Technology Services</h3>
+                    <ul class="service-list">
+                        <li>Mobile Application Development</li>
+                        <li>Web and Backend Development</li>
+                        <li>Technical Leadership and Consulting</li>
+                        <li>Development Operations and Security</li>
+                    </ul>
+                </div>
+                
+               
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Expert Team</h2>
+                <p class="section-subtitle">Meet the professionals behind Finova's success — a team of industry veterans with extensive experience.</p>
+            </div>
+            
+            <div class="team-container">
+
+                <div class="team-member">
+                    <div class="team-header">
+                        <img class="team-img" src="./public/img/marko.jpg" alt="Marko Prsic">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">MARKO PRSIC</h3>
+                        <p class="team-title">Senior Consultant</p>
+                        <div class="team-skills">
+                            <span class="skill-tag">Requirement Analysis</span>
+                            <span class="skill-tag">Solution Architecture</span>
+                            <span class="skill-tag">API Integration Advisory</span>
+                            <span class="skill-tag">Project Management (PMP)</span>
+                            <span class="skill-tag">Product Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-header">
+                        <img class="team-img" src="./public/img/naveen.png" alt="Naveen Nahata">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">NAVEEN NAHATA</h3>
+                        <p class="team-title">Senior Solution Architect</p>
+                        <div class="team-skills">
+                            <span class="skill-tag">HCE & NFC Payments</span>
+                            <span class="skill-tag">Tokenization</span>
+                            <span class="skill-tag">Mobile SDK Integrations</span>
+                            <span class="skill-tag">Software Architecture</span>
+                            <span class="skill-tag">Product Management</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-header">
+                        <img class="team-img" src="./public/img/rajiv.jpg" alt="Rajiv Singh">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">RAJIV SINGH</h3>
+                        <p class="team-title">Solution Architect</p>
+                        <div class="team-skills">
+                            <span class="skill-tag">Payment Card Provisioning</span>
+                            <span class="skill-tag">Mobile App Development</span>
+                            <span class="skill-tag">SDK Development</span>
+                            <span class="skill-tag">SDK Integration Advisory</span>
+                            <span class="skill-tag">AI Agent Development</span>
+                        </div>
+                    </div>
+                </div>
+                
+             
+            </div>
+        </div>
+    </section>
